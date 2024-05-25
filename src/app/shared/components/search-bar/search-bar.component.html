@@ -1,6 +1,33 @@
-<form [formGroup]="searchForm">
-<p-inputGroup>
-    <input type="text" pInputText placeholder="Enter the username" formControlName="usernameSearch"/>
-    <button type="button" label="Search" pButton icon="pi pi-search" class="button-secondary" (click)="onSubmit()"></button>
-</p-inputGroup>
-</form>
+<div class="flex justify-content-center">
+    <form [formGroup]="searchForm">
+
+    <p-inputGroup>
+        <input type="text" pInputText placeholder="Enter the username" formControlName="usernameSearch"/>
+        <button type="button" label="Search" pButton icon="pi pi-search" class="button-secondary" (click)="onSubmit()"></button>
+    </p-inputGroup>
+    </form>
+    
+    @if(userNotFound){
+    <section class="flex flex-column result-container px-3 mt-6" [@inOutAnimationFast]="usersSearched.length > 0">
+        <p class="flex justify-content-center text-red-500">User not found! Try another username!</p>
+    </section>
+    }
+
+    @if(usersSearched.length > 0){
+    <section class="flex flex-column result-container px-3 mt-6" [@inOutAnimationFast]="usersSearched.length > 0">
+        <p class="mb-2">Select a dev:</p>
+        @for(user of usersSearched; track user){
+            <a>
+                <div class="flex justify-content-between align-items-center">
+                    <div class="flex align-items-center gap-2">
+                        <img [src]="user.avatar" [alt]="user.name" width="40" height="40">
+                        <p>{{user.name | truncate:8}}</p>
+                    </div>
+                    <p>Follows: {{user.qtdFollowers}}</p>
+                </div>
+            </a>
+        }
+    </section>
+    }
+
+</div>

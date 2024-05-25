@@ -17,3 +17,10 @@
     padding-left: 10px;
     border: 1px solid #7e8286;
 }
+
+.result-container{
+    position: absolute;
+    height: 30vh;
+    width: 80vw;
+    overflow-y: auto;
+}
