@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import "primeicons/primeicons.css";
+
+.font-primary{
+    font-family: 'Nunito', sans-serif;
+    color: #3086d4
+}
+
+.font-secondary{
+    font-family: 'Nunito', sans-serif;
+    color: #8c19d2
+}
+
+.button-primary{
+    background: #3086d4!important;
+    border: 1px solid #3086d4!important;
+}

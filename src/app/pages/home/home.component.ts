@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
+import { SearchBarComponent } from 'src/app/shared/components/search-bar/search-bar.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [
+    SearchBarComponent
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

@@ -1,0 +1,6 @@
+<form [formGroup]="searchForm">
+<p-inputGroup>
+    <input type="text" pInputText placeholder="Enter the username" formControlName="usernameSearch"/>
+    <button type="button" label="Search" pButton icon="pi pi-search" class="button-secondary" (click)="onSubmit()"></button>
+</p-inputGroup>
+</form>
