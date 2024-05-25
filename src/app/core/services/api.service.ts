@@ -6,11 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-  constructor(private http: HttpClient) {}
   private apiGitHub = 'https://api.github.com';
-  
+
+  constructor(private http: HttpClient) {}
+
   searchUsers(query: string): Observable<any> {
-    return this.http.get(`${this.apiGitHub}/search/users/${query}`);
+    return this.http.get(`${this.apiGitHub}/search/users?q=${query}&per_page=7`);
   }
 
   getUserRepositories(username: string): Observable<any> {

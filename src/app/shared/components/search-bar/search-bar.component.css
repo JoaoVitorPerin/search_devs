@@ -1,0 +1,37 @@
+.button-secondary{
+    background: #8c19d2!important;
+    border: 1px solid #8c19d2!important;
+}
+
+::ng-deep .p-inputgroup{
+    display: flex;
+    align-items: stretch;
+    width: auto!important;
+}
+
+::ng-deep .p-inputgroup input{
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.125rem;
+    font-weight: 400;
+    width: 60vw;
+    padding-left: 10px;
+    border: 1px solid #7e8286;
+}
+
+.result-container{
+    position: absolute;
+    height: 30vh;
+    width: 60vw;
+    overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+    .result-container{
+        width: 100vw;
+    }
+    
+}
+
+.loader-container{
+    position: absolute;
+}
