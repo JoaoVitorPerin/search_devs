@@ -1,27 +1,26 @@
-# SearchDevs
+LIBS
+Resolvi utilizar o PrimeNg pois uso atualmente como minha biblioteca de componentes principal, tanto no trabalho como para possiveis trabalhos da faculdade. 
+Tambem utilizei o PrimeFlex que é uma biblioteca de utilitários CSS que disponibiliza várias features, como sistema de grade, flexbox, espaçamento, elevação e muito mais.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
+ESTRUTURA
+Resolvi estruturar o projeto da seguinte forma:
 
-## Development server
+Core
+Armazena funcionalidades centrais da aplicação que são utilizadas em todo o aplicativo.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+    - services:
+    Resolvi separar em dois services, pois um encapsula a lógica relacionada a usuários, como busca de detalhes e repositórios, separando a lógica de negócios da lógica de apresentação e o outro centraliza todas as chamadas HTTP para a API, facilitando a manutenção e a reutilização do código.
 
-## Code scaffolding
+Pages
+O diretório pages contém componentes que representam páginas completas da aplicação.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+    - home: Página inicial que contém a barra de pesquisa.
+    - search-results: Página que exibe os resultados da pesquisa.
 
-## Build
+Shared
+Contém componentes que são usados em mais de um módulo ou componente.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+    -components:
+        - search-bar: Barra de pesquisa reutilizável que pode ser usada em diferentes partes da aplicação.
+        - user-card: Componente que exibe informações do usuário de forma consistente em diferentes partes da aplicação.
+        - repository-list: Componente que lista repositórios, permitindo sua reutilização em várias páginas.
