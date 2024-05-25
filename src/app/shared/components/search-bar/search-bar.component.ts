@@ -9,6 +9,8 @@ import { users } from 'src/app/core/models/users.model';
 import { ToastModule } from 'primeng/toast';
 import { animacaoPadrao, inOutAnimation, inOutAnimationFast } from 'src/app/core/animation';
 import { TruncatePipe } from 'src/app/core/pipes/truncate.pipe';
+import { ProgressBarModule } from 'primeng/progressbar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-bar',
@@ -21,7 +23,8 @@ import { TruncatePipe } from 'src/app/core/pipes/truncate.pipe';
     InputGroupAddonModule,
     ButtonModule,
     ToastModule,
-    TruncatePipe
+    TruncatePipe,
+    ProgressBarModule
   ],
   templateUrl: './search-bar.component.html',
   styleUrl: './search-bar.component.css',
@@ -30,13 +33,15 @@ import { TruncatePipe } from 'src/app/core/pipes/truncate.pipe';
 export class SearchBarComponent {
   searchForm: FormGroup;
   usersSearched: users[] = [];
-  userNotFound = false;
+  userNotFound: boolean = false;
+  isLoading: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
+    private router: Router
   ){
-    this.searchForm = formBuilder.group({
+    this.searchForm = this.formBuilder.group({
       usernameSearch: ['', Validators.required]
     });
   }
@@ -44,8 +49,12 @@ export class SearchBarComponent {
   onSubmit(){
     this.searchForm.markAllAsTouched();
     if(this.searchForm.valid){
+      this.usersSearched = [];
+      this.userNotFound = false;
+      this.isLoading = true;
       this.userService.searchUsers(this.searchForm.value.usernameSearch).subscribe((response) => {
         if(response.items.length === 0){
+          this.isLoading = false;
           this.userNotFound = true;
           this.usersSearched = [];
           return;
@@ -59,10 +68,18 @@ export class SearchBarComponent {
             qtdFollowers: user.followers_url?.length
           };
         });
+        this.isLoading = false;
       },
       (error) => {
         console.error(error);
+        this.isLoading = false;
       });
     }
   }
+
+  goToResume(username: string){
+    this.router.navigate([`search-results/${username}`]);
+  }
 }
+
+

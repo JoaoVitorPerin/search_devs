@@ -21,6 +21,17 @@
 .result-container{
     position: absolute;
     height: 30vh;
-    width: 80vw;
+    width: 60vw;
     overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+    .result-container{
+        width: 100vw;
+    }
+    
+}
+
+.loader-container{
+    position: absolute;
 }
