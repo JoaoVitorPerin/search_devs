@@ -69,5 +69,36 @@ O projeto está organizado em uma estrutura modular para facilitar a manutençã
 <p>user-info: Componente que exibe informações do usuário de forma consistente em diferentes partes da aplicação.</p>
 <p>user-repos: Componente que lista repositórios, permitindo sua reutilização em várias páginas.</p>
 
+<h2>Testes unitários</h2>
+<p>Realizei testes unitários utilizando o Karma v6.4.3. Decidi fazer teste unitários naqueles componentes que julguei mais importantes para o funcionamento do sistema, estao listados a baixo:</p>
+
+<h3>SearchBarComponent</h3>
+<h4>O SearchBarComponent é crucial para a funcionalidade de busca de usuários no sistema. Testar este componente garante que os usuários possam pesquisar e encontrar outros usuários de forma eficiente e precisa. Além disso, verifica se o componente lida corretamente com diferentes cenários, como a pesquisa de usuários inexistentes ou a exibição de erros ao fazer requisições. Os principais motivos para testar este componente incluem:</h4>
+
+<p>Verificação da funcionalidade de pesquisa: Garante que a busca por usuários funciona corretamente quando o formulário é submetido.</p>
+<p>Manejo de erros: Verifica se o componente lida adequadamente com erros, como usuários não encontrados ou problemas de rede.</p>
+<p>Navegação: Assegura que a navegação para a página de perfil do usuário está funcionando como esperado.</p>
+<p>Inicialização do formulário: Garante que o formulário de busca é inicializado corretamente e que os parâmetros da rota são considerados ao preencher o campo de busca.</p>
+
+<h3>ApiService</h3>
+<h4>O ApiService é responsável por fazer as requisições HTTP para a API do GitHub. Testar este serviço é essencial para garantir que as comunicações com a API estejam funcionando corretamente. Os testes unitários deste serviço são importantes porque:</h4>
+
+<p>Correção das URLs de requisição: Verifica se as URLs para as requisições HTTP estão corretas, garantindo que os dados certos estão sendo solicitados.</p>
+<p>Manejo de respostas: Garante que as respostas da API são tratadas corretamente e que os dados são retornados no formato esperado.</p>
+<p>Manejo de erros: Assegura que o serviço lida corretamente com erros, como falhas de rede ou respostas inválidas da API.</p>
+
+<h3>UserService</h3>
+<h4>O UserService é essencial para a interação com a API de usuários. Testar este serviço garante que as chamadas para obter informações de usuários e suas repositórios funcionem corretamente. Os testes unitários deste serviço são importantes porque:</h4>
+
+<p>Integridade das requisições API: Assegura que as requisições para buscar usuários, informações de usuários e repositórios são feitas corretamente.</p>
+<p>Tratamento de dados: Verifica se os dados retornados pela API são processados corretamente antes de serem utilizados no sistema.</p>
+<p>Manejo de erros: Garante que o serviço lida corretamente com erros ao fazer requisições, fornecendo feedback apropriado para o usuário.</p>
+
+<h3>TruncatePipe</h3>
+<h4>O TruncatePipe é utilizado para truncar textos longos, melhorando a visualização de dados no sistema. Testar este pipe é importante porque:</h4>
+
+<p>Consistência na exibição de dados: Garante que textos longos são truncados de forma consistente e previsível, mantendo a interface do usuário limpa e organizada.</p>
+<p>Manejo de diferentes entradas: Verifica se o pipe lida corretamente com diferentes comprimentos de texto e limites de truncamento, incluindo casos de borda como textos vazios ou limites de truncamento zero.</p>
+
 <h2>Contribuição</h2>
 <h3>Sinta-se à vontade para contribuir com o projeto. Basta abrir uma issue ou enviar um pull request com suas melhorias ou correções.</h3>
