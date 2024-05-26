@@ -21,7 +21,11 @@
 
     @if(usersSearched.length > 0){
     <section class="flex flex-column result-container px-3 mt-6" [@inOutAnimationFast]="usersSearched.length > 0">
-        <p class="mb-2">Select a dev:</p>
+        <div class="mb-2 flex align-items-center justify-content-between">
+            <p >Select a dev:</p>
+            <a class="cursor-pointer" (click)="resetUsersSearched()"><i class="pi pi-times"></i></a>
+        </div>
+        
         @for(user of usersSearched; track user){
             <a class="cursor-pointer" (click)="goToResume(user.name)">
                 <div class="flex justify-content-between align-items-center">

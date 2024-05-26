@@ -29,16 +29,16 @@
         }
         @if(userData?.info?.blog){
             <a class="cursor-pointer" style="text-decoration: none!important;" href="{{userData?.info?.blog}}" target="_blank">
-                <p class="flex align-items-center gap-2"><i class="pi pi-link"></i>{{userData?.info?.blog | truncate: 30}}</p>
+                <p class="flex align-items-center gap-2 text-color-secondary"><i class="pi pi-link"></i>{{userData?.info?.blog | truncate: 30}}</p>
             </a>
         }
         @if(userData?.info?.twitter_username){
             <a class="cursor-pointer" style="text-decoration: none!important;" href="https://twitter.com/{{userData?.info?.twitter_username}}" target="_blank">
-                <p class="flex align-items-center gap-2"><i class="pi pi-twitter"></i>{{'@' + userData?.info?.twitter_username}}</p>
+                <p class="flex align-items-center gap-2 text-color-secondary"><i class="pi pi-twitter"></i>{{'@' + userData?.info?.twitter_username}}</p>
             </a>
         }
     </div>
     <div class="mt-5">
-        <button type="button" label="Contato" pButton class="button-secondary w-full"></button>
+        <button type="button" label="Contato" pButton class="button-secondary w-full" (click)="contactUser(userData?.info?.html_url)"></button>
     </div>
 </div> 

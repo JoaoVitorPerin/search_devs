@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/core/services/user.service';
 import { HeaderComponent } from 'src/app/shared/components/header/header.component';
 import { UserInfoComponent } from 'src/app/shared/components/user-info/user-info.component';
@@ -14,41 +14,45 @@ import { UserReposComponent } from 'src/app/shared/components/user-repos/user-re
     UserReposComponent
   ],
   templateUrl: './search-results.component.html',
-  styleUrl: './search-results.component.css'
+  styleUrls: ['./search-results.component.css'] // Corrigi o nome da propriedade para 'styleUrls'
 })
-export class SearchResultsComponent {
-  userName: any = 'Guest';
+export class SearchResultsComponent implements OnInit {
+  userName: string | null = 'Guest';
   userData: any = {};
 
   constructor(
     private activatedRoute: ActivatedRoute,
+    private router: Router,
     private userService: UserService
-  ){
-  }
-  
-  ngOnInit(){
-    this.userName = this.activatedRoute.snapshot.paramMap.get('username');
+  ) { }
 
-    if(this.userName){
-      this.getUserData(this.userName);
-    }
-  }
-
-  getUserData(userName: string){
-    this.userService.getUserInfo(userName).subscribe((data: any) => {
-      this.userData.info = data;
-    },
-    (error) => {
-      console.error(error)
+  ngOnInit() {
+    this.activatedRoute.paramMap.subscribe(params => {
+      const newUserName = params.get('username');
+      if (newUserName && this.userName !== newUserName) {
+        this.userName = newUserName;
+        this.getUserData(this.userName);
+      }
     });
+  }
 
-    this.userService.getUserRepositories(userName).subscribe((data: any) => {
-      this.userData.repositories = data;
-    },
-    (error) => {
-      console.error(error)
-    });
+  getUserData(userName: string) {
+    this.userService.getUserInfo(userName).subscribe(
+      (data: any) => {
+        this.userData.info = data;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
 
-    console.log(this.userData);
+    this.userService.getUserRepositories(userName).subscribe(
+      (data: any) => {
+        this.userData.repositories = data.sort((a: any, b: any) => b.stargazers_count - a.stargazers_count);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
 }

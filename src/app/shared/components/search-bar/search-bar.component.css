@@ -22,9 +22,11 @@
     position: absolute;
     height: 30vh;
     width: 60vw;
+    z-index: 2000;
     overflow-y: auto;
     background-color: #fff;
-    border-radius: 0px 10px 10px 0px;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 1px 10px 25px 0px rgba(0,0,0,0.75);
 }
 
 @media (max-width: 768px) {

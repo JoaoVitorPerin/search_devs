@@ -20,4 +20,8 @@ import { TruncatePipe } from 'src/app/core/pipes/truncate.pipe';
 })
 export class UserInfoComponent {
   @Input() userData: any = {};
+
+  contactUser(url: string){
+    window.open(url, '_blank');
+  }
 }

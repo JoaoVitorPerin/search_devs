@@ -88,7 +88,13 @@ export class SearchBarComponent implements OnInit{
   }
 
   goToResume(username: string){
+    this.usersSearched = [];
     this.router.navigate([`perfil/${username}`]);
+  }
+
+  resetUsersSearched(){
+    this.usersSearched = [];
+    this.userNotFound = false;
   }
 }
 
