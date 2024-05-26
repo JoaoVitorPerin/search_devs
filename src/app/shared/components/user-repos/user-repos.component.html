@@ -8,6 +8,7 @@
             [totalRecords]="userData?.repositories?.length" 
         ></p-paginator>
     </div>
+    <div class="reposBody">
     @for(repository of paginatedRepositories(); track repository){
         <a [href]="repository.html_url" style="text-decoration: none!important;" target="_blank">
             <div>
@@ -16,11 +17,12 @@
                 <div class="flex align-items-center gap-2 text-color-secondary">
                     <p class="flex align-items-center gap-2"><i class="pi pi-star"></i>{{repository.stargazers_count}}</p>
                     <p>•</p>
-                    <p-tag [value]="repository.language" />
+                    <p-tag [value]="repository.language ?? 'Not found'" />
                     <p>•</p>
                     <p>Last update: {{formatDistanceToNow(repository.updated_at)}}</p>
                 </div>
             </div>
         </a>
     }
+    </div>
 </div>
