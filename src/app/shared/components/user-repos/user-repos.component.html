@@ -1,0 +1,11 @@
+<div class="mx-5 lg:mt-7 lg:mx-0">
+    @for(repository of userData?.repositories; track repository){
+        <div>
+            <h2>{{repository.name}}</h2>
+            <p>{{repository.description}}</p>
+            <p>{{repository.language}}</p>
+            <p>{{repository.stargazers_count}}</p>
+            <p>{{repository.forks_count}}</p>
+        </div>
+    }
+</div>

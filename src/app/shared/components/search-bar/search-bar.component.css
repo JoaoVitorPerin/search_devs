@@ -23,6 +23,8 @@
     height: 30vh;
     width: 60vw;
     overflow-y: auto;
+    background-color: #fff;
+    border-radius: 0px 10px 10px 0px;
 }
 
 @media (max-width: 768px) {

@@ -12,6 +12,10 @@ export class UserService {
     return this.apiService.searchUsers(query);
   }
 
+  getUserInfo(username: string): Observable<any> {
+    return this.apiService.getUserInfo(username);
+  }
+
   getUserRepositories(username: string): Observable<any> {
     return this.apiService.getUserRepositories(username);
   }

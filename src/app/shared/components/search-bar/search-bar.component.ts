@@ -1,7 +1,7 @@
 import { ButtonModule } from 'primeng/button';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { InputGroupModule } from 'primeng/inputgroup';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UserService } from 'src/app/core/services/user.service';
@@ -10,7 +10,7 @@ import { ToastModule } from 'primeng/toast';
 import { animacaoPadrao, inOutAnimation, inOutAnimationFast } from 'src/app/core/animation';
 import { TruncatePipe } from 'src/app/core/pipes/truncate.pipe';
 import { ProgressBarModule } from 'primeng/progressbar';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-bar',
@@ -30,7 +30,8 @@ import { Router } from '@angular/router';
   styleUrl: './search-bar.component.css',
   animations: [animacaoPadrao, inOutAnimation, inOutAnimationFast],
 })
-export class SearchBarComponent {
+
+export class SearchBarComponent implements OnInit{
   searchForm: FormGroup;
   usersSearched: users[] = [];
   userNotFound: boolean = false;
@@ -39,11 +40,20 @@ export class SearchBarComponent {
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ){
     this.searchForm = this.formBuilder.group({
       usernameSearch: ['', Validators.required]
     });
+  }
+
+  ngOnInit(): void {
+    const userName = this.activatedRoute.snapshot.paramMap.get('username');
+
+    if(userName){
+      this.searchForm.get('usernameSearch')?.setValue(userName);
+    }
   }
   
   onSubmit(){
@@ -78,7 +88,7 @@ export class SearchBarComponent {
   }
 
   goToResume(username: string){
-    this.router.navigate([`search-results/${username}`]);
+    this.router.navigate([`perfil/${username}`]);
   }
 }
 

@@ -14,6 +14,10 @@ export class ApiService {
     return this.http.get(`${this.apiGitHub}/search/users?q=${query}&per_page=7`);
   }
 
+  getUserInfo(username: string): Observable<any> {
+    return this.http.get(`${this.apiGitHub}/users/${username}`);
+  }
+
   getUserRepositories(username: string): Observable<any> {
     return this.http.get(`${this.apiGitHub}/users/${username}/repos`);
   }
