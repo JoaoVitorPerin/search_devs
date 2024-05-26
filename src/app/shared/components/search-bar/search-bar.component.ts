@@ -75,7 +75,7 @@ export class SearchBarComponent implements OnInit{
             avatar: user.avatar_url,
             name: user.login,
             qtdRepos: user.public_repos?.length,
-            qtdFollowers: user.followers_url?.length
+            id: user.id
           };
         });
         this.isLoading = false;
