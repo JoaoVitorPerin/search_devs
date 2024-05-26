@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-  private apiGitHub = 'https://api.github.com';
+  apiGitHub = 'https://api.github.com';
 
   constructor(private http: HttpClient) {}
 
