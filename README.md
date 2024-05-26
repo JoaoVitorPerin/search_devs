@@ -18,6 +18,8 @@
 <h3>Executando a Aplicação</h3>
 <h4>Para iniciar o servidor de desenvolvimento, execute:</h4>
 <p><i>ng serve</i></p>
+<h4>Para rodar a build de deploy da aplicação, execute:</h4>
+<p><i>ng build --configuration production</i></p>
 
 <h2>Bibliotecas Utilizadas</h2>
 <h3>PrimeNG</h3>
@@ -25,6 +27,12 @@ Utilizei o PrimeNG como a biblioteca principal de componentes devido à sua robu
 
 <h3>PrimeFlex</h3>
 PrimeFlex é uma biblioteca de utilitários CSS que complementa o PrimeNG, fornecendo funcionalidades como sistema de grade, flexbox, espaçamento, elevação e muito mais. Isso facilita a construção de layouts responsivos e modernos de maneira eficiente.
+
+<h3>PrimeIcons</h3>
+PrimeIcons é a biblioteca de ícones padrão do PrimeNG com mais de 250 ícones de código aberto desenvolvidos pela PrimeTek.
+
+<h3>date-fns</h3>
+Fornece o conjunto de ferramentas mais abrangente, porém simples e consistente para manipular datas JavaScript em um navegador e Node.js
 
 <h2>Estrutura do Projeto</h2>
 O projeto está organizado em uma estrutura modular para facilitar a manutenção e escalabilidade. Abaixo está a descrição das principais pastas e seus conteúdos:
