@@ -100,5 +100,9 @@ O projeto está organizado em uma estrutura modular para facilitar a manutençã
 <p>Consistência na exibição de dados: Garante que textos longos são truncados de forma consistente e previsível, mantendo a interface do usuário limpa e organizada.</p>
 <p>Manejo de diferentes entradas: Verifica se o pipe lida corretamente com diferentes comprimentos de texto e limites de truncamento, incluindo casos de borda como textos vazios ou limites de truncamento zero.</p>
 
+<h2>Como Executar os testes</h2>
+<h4>Execute o comando a baixo:</h4>
+<p><i>ng test</i></p>
+
 <h2>Contribuição</h2>
 <h3>Sinta-se à vontade para contribuir com o projeto. Basta abrir uma issue ou enviar um pull request com suas melhorias ou correções.</h3>
